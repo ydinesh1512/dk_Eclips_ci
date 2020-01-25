@@ -5,5 +5,6 @@ node{
 	
 	stage 'build'
 	bat "${mvnHome}/bin/mvn clean test sonar:sonar"
-	step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
+	stage 'REsults'
+	junit '**/target/surefire-reports/TEST-*.xml'
 }
